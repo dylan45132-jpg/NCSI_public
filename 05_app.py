@@ -36,7 +36,7 @@ def load_data():
 
 inject_css()
 
-df_raw, percentile_stats = load_data()
+df_raw, gdf = load_data()
 
 if df_raw is None:
     st.error("找不到資料檔案，請先執行 pipeline 產生 demo_data/results.parquet。")
@@ -44,6 +44,6 @@ if df_raw is None:
 
 df = df_raw.copy()
 
-sidebar_params = render_sidebar(df, percentile_stats)
+sidebar_params = render_sidebar(df)
 
 render_main(df, sidebar_params)
